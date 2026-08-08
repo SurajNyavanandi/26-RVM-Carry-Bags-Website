@@ -1,6 +1,7 @@
 import React from 'react';
-import { MessageCircle, FileText, CheckCircle2, Phone, Sparkles, ArrowRight } from 'lucide-react';
+import { MessageCircle, CheckCircle2, ArrowRight } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/products';
+import { Button } from './ui/Button';
 
 interface CTABannerProps {
   onOpenQuoteModal: () => void;
@@ -8,72 +9,73 @@ interface CTABannerProps {
 
 export const CTABanner: React.FC<CTABannerProps> = ({ onOpenQuoteModal }) => {
   const whatsappUrl = `https://wa.me/919100777396?text=${encodeURIComponent(
-    "Hello RVM Carry Bags, I want to get an instant quote for custom non-woven bags."
+    "Hello RVM Carry Bags, I want to get an instant quote for custom printed carry bags."
   )}`;
 
   return (
-    <section className="py-12 bg-gradient-to-r from-emerald-950 via-emerald-900 to-slate-900 text-white relative overflow-hidden my-6 border-y border-emerald-800/80">
-      {/* Background ambient lighting */}
-      <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+    <section className="py-14 bg-slate-900 text-white relative overflow-hidden my-8 border-y border-slate-800">
+      {/* Background ambient radial glow */}
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Text Content */}
           <div className="lg:col-span-8 space-y-4 text-center lg:text-left">
-            <div className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Direct Factory Orders • Hyderabad & Telangana</span>
+            <div className="inline-flex items-center gap-2 bg-blue-950/90 text-blue-300 border border-blue-800/80 px-3 py-1 rounded-full text-xs font-bold tracking-wide">
+              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
+              <span>Direct Factory Manufacturing • Hyderabad</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Ready to Upgrade Your Retail Packaging with <span className="text-amber-400">Custom Printed Carry Bags?</span>
+              Ready to Upgrade Your <span className="text-blue-400">Retail Brand's Eco Carry Bags?</span>
             </h2>
 
-            <p className="text-slate-200 text-sm sm:text-base max-w-2xl leading-relaxed">
-              Get direct factory pricing, crisp multi-color flexo printing, and fast dispatch from our Surmaiguda facility near Ramoji Film City.
+            <p className="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+              Calculate instant wholesale rates or connect with our factory team in Surmaiguda near Ramoji Film City for custom flexo logo printed non-woven bags.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-emerald-200 pt-1">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-medium text-slate-300 pt-1">
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                <span>GST Registered: {BUSINESS_INFO.gst}</span>
+                <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                <span>GSTIN: {BUSINESS_INFO.gst}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                <span>D-Cut & W-Cut @ ₹272/kg</span>
+                <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                <span>Base Rate: ₹272 / kg</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                <span>Stitched Bags @ ₹18.50/pc</span>
+                <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                <span>Custom Flexo Logo Printing</span>
               </div>
             </div>
           </div>
 
           {/* Action CTAs */}
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
-            <button
+            <Button
+              variant="blue"
+              size="lg"
               onClick={onOpenQuoteModal}
-              className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-3.5 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-500/20 transition-all transform active:scale-98"
+              icon={<ArrowRight className="w-4 h-4" />}
+              iconPosition="right"
+              className="w-full shadow-lg shadow-blue-600/30"
             >
-              <FileText className="w-5 h-5 text-slate-950" />
-              <span>Calculate & Request Quote</span>
-              <ArrowRight className="w-4 h-4 text-slate-950" />
-            </button>
+              Calculate Rate & Instant Quote
+            </Button>
 
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 shadow-lg transition-all transform active:scale-98"
+              className="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 px-6 rounded-2xl text-sm flex items-center justify-center gap-2 border border-slate-700 transition-all cursor-pointer"
             >
-              <MessageCircle className="w-5 h-5 text-emerald-200" />
-              <span>Instant WhatsApp Inquiry</span>
+              <MessageCircle className="w-5 h-5 text-emerald-400" />
+              <span>WhatsApp Direct Line</span>
             </a>
 
             <div className="text-center pt-1 text-[11px] text-slate-400">
-              Or call direct: <a href={`tel:${BUSINESS_INFO.phone}`} className="text-amber-400 font-bold hover:underline">{BUSINESS_INFO.phone}</a>
+              Direct Phone: <a href={`tel:${BUSINESS_INFO.phone}`} className="text-blue-400 font-bold hover:underline">{BUSINESS_INFO.phone}</a>
             </div>
           </div>
 

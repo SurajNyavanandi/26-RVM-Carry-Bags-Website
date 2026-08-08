@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'amber' | 'emerald' | 'slate' | 'outline' | 'ghost' | 'indigo';
+  variant?: 'blue' | 'primary' | 'secondary' | 'amber' | 'emerald' | 'slate' | 'outline' | 'ghost' | 'indigo';
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
@@ -9,7 +9,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  variant = 'emerald',
+  variant = 'blue',
   size = 'md',
   icon,
   iconPosition = 'left',
@@ -27,12 +27,15 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    amber: "bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-md hover:shadow-amber-500/20",
-    emerald: "bg-emerald-700 hover:bg-emerald-600 text-white shadow-md hover:shadow-emerald-700/20",
+    blue: "bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/15 hover:shadow-blue-500/25",
+    primary: "bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/15 hover:shadow-blue-500/25",
+    secondary: "bg-white hover:bg-blue-50/50 text-blue-700 border border-blue-200 shadow-xs",
+    amber: "bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-md",
+    emerald: "bg-emerald-600 hover:bg-emerald-700 text-white shadow-md",
     slate: "bg-slate-900 hover:bg-slate-800 text-white border border-slate-700 shadow-sm",
-    indigo: "bg-indigo-600 hover:bg-indigo-500 text-white shadow-md hover:shadow-indigo-600/20",
-    outline: "border border-gray-300 hover:border-emerald-600 hover:bg-emerald-50 text-slate-800",
-    ghost: "text-gray-700 hover:bg-gray-100 hover:text-slate-900",
+    indigo: "bg-indigo-600 hover:bg-indigo-500 text-white shadow-md",
+    outline: "border border-slate-200 hover:border-blue-600 hover:bg-blue-50/60 text-slate-800",
+    ghost: "text-slate-600 hover:bg-slate-100/80 hover:text-slate-900",
   };
 
   return (
@@ -47,3 +50,4 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+

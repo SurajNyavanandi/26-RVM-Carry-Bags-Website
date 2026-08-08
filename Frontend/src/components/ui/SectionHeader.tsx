@@ -13,7 +13,7 @@ export interface SectionHeaderProps {
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   badgeText,
-  badgeVariant = 'emerald',
+  badgeVariant = 'blue',
   badgeIcon,
   title,
   description,
@@ -23,7 +23,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <div className={`space-y-3 ${centered ? 'text-center max-w-3xl mx-auto' : ''} ${className}`}>
       {badgeText && (
-        <Badge variant={badgeVariant} icon={badgeIcon}>
+        <Badge variant={badgeVariant} icon={badgeIcon} showLinePrefix>
           {badgeText}
         </Badge>
       )}
@@ -31,10 +31,11 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         {title}
       </h2>
       {description && (
-        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+        <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
           {description}
         </p>
       )}
     </div>
   );
 };
+

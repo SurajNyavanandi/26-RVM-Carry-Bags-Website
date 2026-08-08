@@ -46,3 +46,18 @@ export interface QuoteFormData {
   customerEmail: string;
   notes: string;
 }
+
+export interface AdminQuoteInquiry {
+  id: string;
+  customerName: string;
+  customerPhone: string;
+  customerEmail: string;
+  bagCategory: string;
+  bagSize: string;
+  quantity: string;
+  printingType: string;
+  estimatedAmount: number;
+  date: string;
+  status: 'New' | 'Contacted' | 'Fulfilled';
+  notes?: string;
+}

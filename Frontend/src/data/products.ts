@@ -2,7 +2,7 @@ import { BusinessInfo, Product } from '../types';
 
 export const BUSINESS_INFO: BusinessInfo = {
   name: "RVM Carry Bags",
-  subtitle: "RVM Manufacturers & Printers",
+  subtitle: "Eco-Friendly Non-Woven Carry Bags Manufacturer & Custom Flexo Printers",
   proprietor: "R. Venu Madhav",
   domain: "rvmcarrybags.com",
   address: "Surmaiguda Village, Abdullapurmet Mandal, Near Ramoji Film City, Hyderabad, RR District – 501512",
@@ -10,7 +10,7 @@ export const BUSINESS_INFO: BusinessInfo = {
   phone: "+91 91007 77396",
   whatsapp: "+91 91007 77396",
   gst: "36LAWPK6738E1ZW",
-  tagline: "Print Your Brand, Pack Your Success",
+  tagline: "High-Strength Eco-Friendly Carry Bags & Custom Flexo Printing Unit",
   googleMapsUrl: "https://maps.app.goo.gl/BEmTxuA1LzouhoQU8?g_st=iw",
   socials: {
     instagram: "https://instagram.com/rvmcarrybags",
@@ -99,33 +99,33 @@ export const PRODUCTS: Product[] = [
 
 export const WHY_CHOOSE_US_POINTS = [
   {
-    title: "Non-Woven Bags",
-    description: "Manufactured using high-grade virgin polypropylene fabric for superior tensile durability and flawless print finish.",
+    title: "100% Virgin Non-Woven Fabric",
+    description: "Manufactured using premium grade virgin polypropylene fabric for superior tensile durability, soft touch, and flawless print adhesion.",
     icon: "ShoppingBag"
   },
   {
-    title: "Jute & Fabric Solutions",
-    description: "Eco-friendly, biodegradable materials aligned with global sustainability standards and single-use plastic ban compliance.",
+    title: "Plastic-Ban Compliant",
+    description: "100% eco-friendly and reusable non-woven material compliant with all state and national single-use plastic ban directives.",
     icon: "Leaf"
   },
   {
-    title: "Precision Custom Printing",
-    description: "In-house precision flexo & screen printing with vibrant eco-inks. Print your brand logo, tagline, and contact info.",
+    title: "Precision Flexo Logo Printing",
+    description: "In-house automated flexographic and screen printing for crisp, non-fading brand logos, slogans, and multi-color artwork.",
     icon: "Printer"
   },
   {
-    title: "Eco-Friendly Choice",
-    description: "100% recyclable, bio-degradable non-woven materials that protect the environment while building brand reputation.",
-    icon: "Recycle"
+    title: "Direct Factory Pricing",
+    description: "Zero middleman markup. Enjoy factory-direct wholesale rates per kg or piece with transparent GST invoicing.",
+    icon: "Tag"
   },
   {
-    title: "Strong & Heavy Durable",
-    description: "Reinforced heat-sealed and stitched seam strength tested to hold up to 15-20 kg of payload safely.",
+    title: "Heavy Load Payload Tested",
+    description: "Reinforced heat-sealed and stitched seam strength tested to hold 15-20 kg of payload safely without tearing.",
     icon: "ShieldCheck"
   },
   {
-    title: "Reusable & Long Lasting",
-    description: "Designed for multiple reuses by end consumers, turning every bag into a walking advertisement for your business.",
-    icon: "Sparkles"
+    title: "Rapid Wholesale Fulfillment",
+    description: "High-capacity automated ultrasonic bag making machinery ensuring fast production turnaround and timely dispatch.",
+    icon: "Truck"
   }
 ];

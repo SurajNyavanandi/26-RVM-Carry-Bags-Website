@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp, MessageCircle, FileText } from 'lucide-react';
+import { ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
+import { SectionHeader } from './ui/SectionHeader';
 
 export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -10,28 +11,24 @@ export const FAQ: React.FC = () => {
       a: "For D-Cut and W-Cut bags sold by weight (₹272/kg), our standard minimum order quantity starts from 50 kg for custom flexo single-color printing. For Stitched bags (₹18.50/piece), MOQ starts at 500 pieces."
     },
     {
-      q: "What custom printing options do you provide?",
-      a: "We offer high-definition Flexographic printing and Screen printing. Options include Single Color (front & back), Dual Tone, Multi-Color custom logo printing, or Plain unprinted bags."
+      q: "Are non-woven carry bags 100% compliant with plastic ban regulations?",
+      a: "Yes. All RVM non-woven carry bags are manufactured using 100% recyclable polypropylene spunbond fabric that complies with state and central single-use plastic ban directives."
     },
     {
-      q: "How long does manufacturing and delivery take in Hyderabad?",
-      a: "Standard custom printed production takes 3 to 5 business days after graphic proof approval. Emergency/express dispatches across Hyderabad and Rangareddy district can be coordinated upon request."
+      q: "Can you print custom brand logos, slogans, and store contact numbers?",
+      a: "Yes! We offer in-house single-color, dual-color, and multi-color flexographic printing. Simply send us your artwork or logo text on WhatsApp, and we will prepare a digital proof prior to bulk printing."
     },
     {
-      q: "Can I inspect a sample or design proof before bulk production?",
-      a: "Yes! We share a digital artwork mock-up showing bag dimensions, logo scaling, and color position for your approval before starting the printing press."
+      q: "How much weight payload can these non-woven bags hold safely?",
+      a: "Our D-Cut and W-Cut bags support 8kg to 12kg payloads depending on fabric GSM. Heavy-duty Stitched Loop bags and 3D Box bags are reinforced to hold 15kg to 20kg safely."
     },
     {
-      q: "Are non-woven carry bags 100% compliant with plastic bans?",
-      a: "Yes. Our non-woven carry bags are manufactured using 100% virgin spunbond polypropylene fabric, which is reusable, recyclable, and compliant with environmental standards."
+      q: "How long does custom non-woven bag production and dispatch take?",
+      a: "Standard custom printed batch production takes 3 to 5 business days after graphic proof approval. Local dispatches across Hyderabad and Rangareddy district can be coordinated upon request."
     },
     {
-      q: "What payload weight capacity can D-Cut and W-Cut bags support?",
-      a: "Depending on fabric GSM and handle style, D-Cut bags comfortably hold 3 kg to 8 kg, while W-Cut and Stitched Loop bags support up to 10 kg to 18 kg payload."
-    },
-    {
-      q: "Do you provide GST invoices for corporate orders?",
-      a: "Yes, RVM Carry Bags is a GST registered manufacturing unit (GSTIN: 36LAWPK6738E1ZW). Official GST invoices are provided with every wholesale dispatch."
+      q: "Do you provide official GST invoices for all wholesale orders?",
+      a: "Yes, RVM Carry Bags is a GST registered corporate entity (GSTIN: 36LAWPK6738E1ZW). Official GST tax invoices are provided for all commercial orders and bulk shipments."
     }
   ];
 
@@ -40,46 +37,44 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-16 bg-white border-t border-gray-100">
+    <section id="faq" className="py-16 bg-white border-b border-slate-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center space-y-3 mb-10">
-          <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-            <HelpCircle className="w-3.5 h-3.5 text-amber-700" />
-            Frequently Asked Questions
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Got Questions? We Have Answers
-          </h2>
-          <p className="text-gray-600 text-sm sm:text-base">
-            Everything you need to know about custom non-woven bag orders, MOQ, printing, and delivery.
-          </p>
-        </div>
+        <SectionHeader
+          badgeText="Got Questions?"
+          badgeVariant="blue"
+          title={
+            <span>
+              Frequently Asked <span className="text-blue-600">Questions</span>
+            </span>
+          }
+          description="Everything you need to know about wholesale carry bag ordering, custom flexo printing, weight capacity, and dispatch."
+        />
 
         {/* Accordion List */}
-        <div className="space-y-3">
+        <div className="space-y-3 mt-10">
           {faqs.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div 
                 key={idx}
-                className="border border-gray-200 rounded-2xl overflow-hidden transition-colors bg-white shadow-2xs"
+                className="border border-slate-200/90 rounded-2xl overflow-hidden transition-colors bg-white shadow-2xs"
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 hover:bg-emerald-50/50 transition-colors focus:outline-none"
+                  className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 hover:bg-blue-50/40 transition-colors focus:outline-none cursor-pointer"
                 >
                   <span className="font-bold text-slate-900 text-sm sm:text-base">
                     {item.q}
                   </span>
-                  <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-700 shrink-0">
-                    {isOpen ? <ChevronUp className="w-4 h-4 text-emerald-700" /> : <ChevronDown className="w-4 h-4" />}
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                    {isOpen ? <ChevronUp className="w-4 h-4 text-blue-600" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-5 pt-1 sm:px-5 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100 bg-gray-50/50">
+                  <div className="px-4 pb-5 pt-1 sm:px-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/50">
                     {item.a}
                   </div>
                 )}
@@ -89,20 +84,20 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* Still Have Questions Box */}
-        <div className="mt-10 bg-emerald-50 border border-emerald-200 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="mt-10 bg-blue-50/60 border border-blue-200/80 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <h3 className="text-sm sm:text-base font-bold text-slate-900">Still have questions regarding your order?</h3>
-            <p className="text-xs text-gray-600">Our customer team is available on WhatsApp or phone to guide you.</p>
+            <h3 className="text-sm sm:text-base font-bold text-slate-900">Have specific bag design or size requirements?</h3>
+            <p className="text-xs text-slate-600">Connect directly with our manufacturing team on WhatsApp.</p>
           </div>
           
           <a
-            href={`https://wa.me/919100777396?text=${encodeURIComponent("Hello RVM Carry Bags, I have a question regarding non-woven bag custom ordering.")}`}
+            href={`https://wa.me/919100777396?text=${encodeURIComponent("Hello RVM Carry Bags, I have a question regarding non-woven bag customization.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-2 shrink-0 shadow-sm"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm flex items-center gap-2 shrink-0 shadow-sm cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 text-emerald-300" />
-            <span>Ask on WhatsApp</span>
+            <span>Chat on WhatsApp</span>
           </a>
         </div>
 

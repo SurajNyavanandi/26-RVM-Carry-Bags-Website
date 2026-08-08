@@ -18,6 +18,8 @@ import { StickyWhatsApp } from './components/StickyWhatsApp';
 import { ScrollToTop } from './components/ScrollToTop';
 import { ImageLightboxModal } from './components/ImageLightboxModal';
 import { QuoteCalculatorModal } from './components/QuoteCalculatorModal';
+import { AdminModal } from './components/AdminModal';
+import { SEO } from './components/SEO';
 
 import { useModalState } from './hooks/useModalState';
 import { useScrollTo } from './hooks/useScrollTo';
@@ -30,6 +32,9 @@ export default function App() {
 
   // Quote calculator modal state
   const quoteModal = useModalState<{ category?: string }>();
+
+  // Admin portal modal state
+  const adminModal = useModalState();
 
   // Category filter state for ProductsSection
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('all');
@@ -48,10 +53,19 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen bg-white font-sans text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
       
+      {/* Dynamic SEO Metadata & Schema Injector */}
+      <SEO 
+        selectedCategoryFilter={selectedCategoryFilter}
+        activeModalCategory={quoteModal.data?.category}
+      />
+
       {/* Sticky Header */}
-      <Header onOpenQuoteModal={handleOpenQuoteModal} />
+      <Header 
+        onOpenQuoteModal={handleOpenQuoteModal} 
+        onOpenAdminModal={adminModal.openModal}
+      />
 
       {/* Main Content */}
       <main>
@@ -104,7 +118,7 @@ export default function App() {
       </main>
 
       {/* 13. Footer */}
-      <Footer />
+      <Footer onOpenAdminModal={adminModal.openModal} />
 
       {/* 14. Developer Credit */}
       <DeveloperCredit />
@@ -128,6 +142,12 @@ export default function App() {
         isOpen={quoteModal.isOpen}
         initialCategory={quoteModal.data?.category}
         onClose={quoteModal.closeModal}
+      />
+
+      {/* Admin Portal Modal */}
+      <AdminModal
+        isOpen={adminModal.isOpen}
+        onClose={adminModal.closeModal}
       />
 
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, AtSign, BadgeCheck } from 'lucide-react';
+import { MessageCircle, Link } from 'lucide-react';
 import { DEVELOPER_INSTAGRAM_URL, DEVELOPER_LINKEDIN_URL, getDeveloperWhatsAppLink } from '../utils/whatsapp';
 
 export const DeveloperCredit: React.FC = () => {
@@ -35,7 +35,7 @@ export const DeveloperCredit: React.FC = () => {
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-pink-400 hover:text-pink-300 transition-colors"
           >
-            <AtSign className="w-3.5 h-3.5" />
+            <Link className="w-3.5 h-3.5" />
             <span>Instagram</span>
           </a>
 
@@ -45,7 +45,7 @@ export const DeveloperCredit: React.FC = () => {
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
           >
-            <BadgeCheck className="w-3.5 h-3.5" />
+            <Link className="w-3.5 h-3.5" />
             <span>LinkedIn</span>
           </a>
         </div>

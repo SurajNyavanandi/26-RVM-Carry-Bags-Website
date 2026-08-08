@@ -1,6 +1,8 @@
 import React from 'react';
 import { PRODUCTS } from '../data/products';
 import { ArrowUpRight, CheckCircle, Tag, Layers } from 'lucide-react';
+import { SectionHeader } from './ui/SectionHeader';
+import { Button } from './ui/Button';
 
 interface ProductCategoriesProps {
   onSelectCategory: (categoryId: string) => void;
@@ -12,49 +14,47 @@ export const ProductCategories: React.FC<ProductCategoriesProps> = ({
   onOpenQuoteModal 
 }) => {
   return (
-    <section id="categories" className="py-14 bg-white border-y border-gray-100">
+    <section id="categories" className="py-16 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-            <Layers className="w-3.5 h-3.5 text-amber-700" />
-            Product Portfolio
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Explore Our Core Bag Categories
-          </h2>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-            High-quality non-woven carry bags crafted for durability, elegance, and distinct brand visibility across all commercial applications.
-          </p>
-        </div>
+        <SectionHeader
+          badgeText="Packaging Catalog"
+          badgeVariant="blue"
+          title={
+            <span>
+              Direct Manufacturing & <span className="text-blue-600">Printing Portfolio</span>
+            </span>
+          }
+          description="High-tensile non-woven carry bags engineered for strength, elegance, and distinct brand visibility."
+        />
 
         {/* 4 Category Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {PRODUCTS.map((product) => {
             const primaryImg = product.images[0]?.url;
 
             return (
               <div 
                 key={product.id}
-                className="bg-gray-50/70 rounded-2xl p-4 border border-gray-200/90 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-slate-50/70 rounded-2xl p-5 border border-slate-200/80 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
                   {/* Image Container with 9:16 aspect handling */}
                   <div 
                     onClick={() => onSelectCategory(product.id)}
-                    className="relative aspect-[9/16] w-full bg-slate-900 rounded-xl overflow-hidden cursor-pointer mb-4"
+                    className="relative aspect-[9/16] w-full bg-slate-950 rounded-xl overflow-hidden cursor-pointer mb-4"
                   >
                     <img 
                       src={primaryImg} 
-                      alt={product.name}
-                      className="w-full h-full object-contain bg-slate-900 group-hover:scale-105 transition-transform duration-500"
+                      alt={`RVM Carry Bags ${product.name} - Custom Logo Flexo Printed Non-Woven Eco Bag`}
+                      className="w-full h-full object-contain bg-slate-950 group-hover:scale-102 transition-transform duration-300"
                       loading="lazy"
                     />
                     
                     {/* Price Tag Overlay */}
-                    <div className="absolute top-2.5 right-2.5 bg-emerald-700 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg shadow-md flex items-center gap-1">
-                      <Tag className="w-3 h-3 text-amber-300" />
+                    <div className="absolute top-2.5 right-2.5 bg-blue-600 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg shadow-md flex items-center gap-1">
+                      <Tag className="w-3 h-3 text-blue-200" />
                       <span>{product.priceDisplay}</span>
                     </div>
 
@@ -65,21 +65,21 @@ export const ProductCategories: React.FC<ProductCategoriesProps> = ({
                   </div>
 
                   {/* Card Title */}
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                     {product.name}
                   </h3>
 
                   {/* Available Sizes preview */}
-                  <div className="mt-2 text-xs text-gray-600 space-y-1">
-                    <span className="font-semibold text-gray-800 block">Available Sizes:</span>
-                    <p className="text-gray-600 line-clamp-1">{product.sizes.join(', ')}</p>
+                  <div className="mt-2 text-xs text-slate-600 space-y-1">
+                    <span className="font-semibold text-slate-800 block">Available Sizes:</span>
+                    <p className="text-slate-600 line-clamp-1">{product.sizes.join(', ')}</p>
                   </div>
 
                   {/* Features list */}
                   <div className="mt-3 space-y-1">
                     {product.features.slice(0, 3).map((feat, idx) => (
-                      <div key={idx} className="flex items-center gap-1.5 text-xs text-gray-600">
-                        <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                      <div key={idx} className="flex items-center gap-1.5 text-xs text-slate-600">
+                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -87,21 +87,22 @@ export const ProductCategories: React.FC<ProductCategoriesProps> = ({
                 </div>
 
                 {/* Card Action Footer */}
-                <div className="mt-5 pt-3 border-t border-gray-200/80 flex items-center justify-between gap-2">
+                <div className="mt-5 pt-3 border-t border-slate-200/80 flex items-center justify-between gap-2">
                   <button
                     onClick={() => onSelectCategory(product.id)}
-                    className="text-xs font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 py-1"
+                    className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1 py-1 cursor-pointer"
                   >
-                    <span>View All Images</span>
+                    <span>View Designs</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </button>
 
-                  <button
+                  <Button
+                    variant="blue"
+                    size="sm"
                     onClick={() => onOpenQuoteModal(product.id)}
-                    className="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors shadow-xs"
                   >
-                    Quote
-                  </button>
+                    Get Quote
+                  </Button>
                 </div>
 
               </div>
@@ -113,3 +114,4 @@ export const ProductCategories: React.FC<ProductCategoriesProps> = ({
     </section>
   );
 };
+
